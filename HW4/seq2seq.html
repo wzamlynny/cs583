@@ -13115,7 +13115,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="k">import</span> <span class="n">drive</span>
@@ -13143,6 +13143,19 @@ div#notebook {
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># data_loc = &#39;Data/&#39;</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -13317,63 +13330,18 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[0]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># def load_clean_text(filename):</span>
-<span class="c1">#   # load dataset</span>
-<span class="c1">#   doc = load_doc(filename)</span>
-
-<span class="c1">#   # split into Language1-Language2 pairs</span>
-<span class="c1">#   pairs = to_pairs(doc)</span>
-
-<span class="c1">#   # clean sentences</span>
-<span class="c1">#   clean_pairs = clean_data(pairs) #[0:n_train, :]</span>
-  
-<span class="c1">#   len_data = len(pairs) # This is how much data we have</span>
-<span class="c1">#   print(&quot;Total number of data points:&quot;, len_data)</span>
-    
-<span class="c1">#   # Sample of read in data</span>
-<span class="c1">#   for i in range(3000, 3010):</span>
-<span class="c1">#     print(&#39;[&#39; + clean_pairs[i, 0] + &#39;] =&gt; [&#39; + clean_pairs[i, 1] + &#39;]&#39;)</span>
-    
-<span class="c1">#   # Create input_texts and target_texts</span>
-<span class="c1">#   input_texts = clean_pairs[:, 0]</span>
-<span class="c1">#   target_texts = numpy.array([&#39;\t&#39; + text + &#39;\n&#39; for text in clean_pairs[:, 1]])</span>
-
-<span class="c1">#   print(&#39;Length of input_texts:  &#39; + str(input_texts.shape))</span>
-<span class="c1">#   print(&#39;Length of target_texts: &#39; + str(input_texts.shape))</span>
-  
-<span class="c1">#   # define max sequence lengths</span>
-<span class="c1">#   max_encoder_seq_length = max(len(line) for line in input_texts)</span>
-<span class="c1">#   max_decoder_seq_length = max(len(line) for line in target_texts)</span>
-
-<span class="c1">#   print(&#39;max length of input  sentences: %d&#39; % (max_encoder_seq_length))</span>
-<span class="c1">#   print(&#39;max length of target sentences: %d&#39; % (max_decoder_seq_length))</span>
-  
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load dataset</span>
 <span class="n">doc_pol</span> <span class="o">=</span> <span class="n">load_doc</span><span class="p">(</span><span class="n">filename_pol</span><span class="p">)</span>
-<span class="n">doc_fra</span> <span class="o">=</span> <span class="n">load_doc</span><span class="p">(</span><span class="n">filename_fra</span><span class="p">)</span>
-<span class="n">doc_spa</span> <span class="o">=</span> <span class="n">load_doc</span><span class="p">(</span><span class="n">filename_spa</span><span class="p">)</span>
 
 <span class="c1"># split into Language1-Language2 pairs</span>
 <span class="n">pairs_pol</span> <span class="o">=</span> <span class="n">to_pairs</span><span class="p">(</span><span class="n">doc_pol</span><span class="p">)</span>
-<span class="n">pairs_fra</span> <span class="o">=</span> <span class="n">to_pairs</span><span class="p">(</span><span class="n">doc_fra</span><span class="p">)</span>
-<span class="n">pairs_spa</span> <span class="o">=</span> <span class="n">to_pairs</span><span class="p">(</span><span class="n">doc_spa</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">doc_pol</span> <span class="c1"># Save RAM</span>
 
 <span class="c1"># clean sentences</span>
-<span class="n">clean_pairs_pol</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">pairs_pol</span><span class="p">)</span> <span class="c1">#[0:n_train, :]</span>
-<span class="n">clean_pairs_fra</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">pairs_fra</span><span class="p">)</span>
-<span class="n">clean_pairs_spa</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">pairs_spa</span><span class="p">)</span>
+<span class="n">clean_pairs_pol</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">pairs_pol</span><span class="p">)</span>
+
+<span class="k">del</span> <span class="n">pairs_pol</span>
 </pre></div>
 
     </div>
@@ -13383,14 +13351,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">len_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs_pol</span><span class="p">)</span> <span class="c1"># This is how much data we have</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">len_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean_pairs_pol</span><span class="p">)</span> <span class="c1"># This is how much data we have</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of data points (pol):&quot;</span><span class="p">,</span> <span class="n">len_data</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of data points (fra):&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs_fra</span><span class="p">))</span> <span class="c1"># fra</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of data points (spa):&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairs_spa</span><span class="p">))</span> <span class="c1"># spa</span>
 </pre></div>
 
     </div>
@@ -13408,8 +13373,6 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of data points (pol): 37426
-Total number of data points (fra): 167130
-Total number of data points (spa): 120614
 </pre>
 </div>
 </div>
@@ -13420,7 +13383,7 @@ Total number of data points (spa): 120614
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">3010</span><span class="p">):</span>
@@ -13461,148 +13424,13 @@ Total number of data points (spa): 120614
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">510</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">clean_pairs_fra</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;] =&gt; [&#39;</span> <span class="o">+</span> <span class="n">clean_pairs_fra</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[come over] =&gt; [viens chez nous]
-[come over] =&gt; [venez chez nous]
-[come over] =&gt; [viens chez moi]
-[come over] =&gt; [venez chez moi]
-[come soon] =&gt; [viens bientôt]
-[come soon] =&gt; [venez bientôt]
-[cool down] =&gt; [calmezvous]
-[did i win] =&gt; [aije gagné]
-[did i win] =&gt; [laije emporté]
-[did i win] =&gt; [estce moi qui ai gagné]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">3010</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">clean_pairs_spa</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;] =&gt; [&#39;</span> <span class="o">+</span> <span class="n">clean_pairs_spa</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[im prepared] =&gt; [estoy preparada]
-[im rational] =&gt; [soy racional]
-[im relieved] =&gt; [me siento aliviado]
-[im restless] =&gt; [soy inquieto]
-[im restless] =&gt; [estoy desasosegado]
-[im restless] =&gt; [soy intranquilo]
-[im shopping] =&gt; [estoy comprando]
-[im sleeping] =&gt; [estoy durmiendo]
-[im so alone] =&gt; [estoy tan solo]
-[im so happy] =&gt; [soy tan feliz]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Convert the other languages to dictionaries to easily check for translations</span>
-<span class="c1"># # this can&#39;t handle mutliple definitions...</span>
-<span class="c1"># dict_fra = {pair[0]: pair[1] for pair in clean_pairs_fra}</span>
-<span class="c1"># dict_spa = {pair[0]: pair[1] for pair in clean_pairs_spa}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # TODO ONLY KEEP TERMS IN ALL LANGUAGES</span>
-<span class="c1"># # count the overlap</span>
-<span class="c1"># count_overlap = 0</span>
-
-<span class="c1"># for i in range(len(clean_pairs_pol)):</span>
-<span class="c1">#   if clean_pairs_pol[i, 0] in dict_fra and clean_pairs_pol[i, 0] in dict_spa:</span>
-<span class="c1"># #     print(clean_pairs_pol[i,0])</span>
-<span class="c1">#     count_overlap += 1;</span>
-<span class="c1"># print(&quot;Overlap:&quot;, count_overlap)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Overlap: 8465
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_texts</span> <span class="o">=</span> <span class="n">clean_pairs_pol</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">target_texts</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">text</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">clean_pairs_pol</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="k">del</span> <span class="n">clean_pairs_pol</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of input_texts:  &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_texts</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of target_texts: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_texts</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -13634,7 +13462,7 @@ Length of target_texts: (37426,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_encoder_seq_length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_texts</span><span class="p">)</span>
@@ -13689,7 +13517,7 @@ max length of target sentences: 222
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.preprocessing.text</span> <span class="k">import</span> <span class="n">Tokenizer</span>
@@ -13754,7 +13582,7 @@ shape of target_token_index: 40
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_encoder_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_token_index</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
@@ -13810,7 +13638,7 @@ num_decoder_tokens: 41
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">target_texts</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
@@ -13826,7 +13654,7 @@ num_decoder_tokens: 41
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[0]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13843,7 +13671,7 @@ num_decoder_tokens: 41
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">decoder_input_seq</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="p">:]</span>
@@ -13859,7 +13687,7 @@ num_decoder_tokens: 41
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[0]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13901,7 +13729,7 @@ num_decoder_tokens: 41
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="k">import</span> <span class="n">to_categorical</span>
@@ -13980,7 +13808,7 @@ num_decoder_tokens: 41
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_encoder_input_data</span> <span class="o">=</span> <span class="n">encoder_input_data</span><span class="p">[</span><span class="n">train_msk</span><span class="p">,:,:]</span>
@@ -14037,12 +13865,12 @@ num_decoder_tokens: 41
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>shape of train_encoder_input_seq (22335, 255, 31)
-shape of valid_encoder_input_seq (7465, 255, 31)
-shape of test_encoder_input_seq (7626, 255, 31)
-shape of train_decoder_input_seq (22335, 222, 41)
-shape of valid_decoder_input_seq (7465, 222, 41)
-shape of test_decoder_input_seq (7626, 222, 41)
+<pre>shape of train_encoder_input_seq (22357, 255, 31)
+shape of valid_encoder_input_seq (7601, 255, 31)
+shape of test_encoder_input_seq (7468, 255, 31)
+shape of train_decoder_input_seq (22357, 222, 41)
+shape of valid_decoder_input_seq (7601, 222, 41)
+shape of test_decoder_input_seq (7468, 222, 41)
 </pre>
 </div>
 </div>
@@ -14082,7 +13910,7 @@ shape of test_decoder_input_seq (7626, 222, 41)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">Concatenate</span>
@@ -14095,10 +13923,6 @@ shape of test_decoder_input_seq (7626, 222, 41)
                        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;encoder_inputs&#39;</span><span class="p">)</span>
 
 <span class="c1"># # set the LSTM layer</span>
-<span class="c1"># encoder_lstm = LSTM(latent_dim, return_state=True, </span>
-<span class="c1">#                     dropout=0.5, name=&#39;encoder_lstm&#39;)</span>
-<span class="c1"># _, state_h, state_c = encoder_lstm(encoder_inputs)</span>
-
 <span class="n">encoder_bilstm</span> <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">return_state</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
                                   <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;encoder_lstm&#39;</span><span class="p">))</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">forward_h</span><span class="p">,</span> <span class="n">forward_c</span><span class="p">,</span> <span class="n">backward_h</span><span class="p">,</span> <span class="n">backward_c</span> <span class="o">=</span> <span class="n">encoder_bilstm</span><span class="p">(</span><span class="n">encoder_inputs</span><span class="p">)</span>
@@ -14150,7 +13974,7 @@ Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">SVG</span>
@@ -14268,7 +14092,7 @@ ________________________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">SVG</span>
@@ -14358,7 +14182,7 @@ ________________________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">state_h</span><span class="p">)</span>
@@ -14380,7 +14204,7 @@ ________________________________________________________________________________
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Tensor(&#34;decoder_lstm/while/Exit_2:0&#34;, shape=(?, 512), dtype=float32)
-Tensor(&#34;decoder_input_h_1:0&#34;, shape=(?, 512), dtype=float32)
+Tensor(&#34;decoder_input_h:0&#34;, shape=(?, 512), dtype=float32)
 </pre>
 </div>
 </div>
@@ -14391,7 +14215,7 @@ Tensor(&#34;decoder_input_h_1:0&#34;, shape=(?, 512), dtype=float32)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">SVG</span>
@@ -14469,7 +14293,7 @@ ________________________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape of encoder_input_data&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_encoder_input_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -14491,9 +14315,9 @@ ________________________________________________________________________________
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>shape of encoder_input_data(22335, 255, 31)
-shape of decoder_input_data(22335, 222, 41)
-shape of decoder_target_data(22335, 222, 41)
+<pre>shape of encoder_input_data(22357, 255, 31)
+shape of decoder_input_data(22357, 222, 41)
+shape of decoder_target_data(22357, 222, 41)
 </pre>
 </div>
 </div>
@@ -14504,17 +14328,16 @@ shape of decoder_target_data(22335, 222, 41)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">)</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">train_encoder_input_data</span><span class="p">,</span> <span class="n">train_decoder_input_data</span><span class="p">],</span>  <span class="c1"># training data</span>
           <span class="n">train_decoder_target_data</span><span class="p">,</span>                       <span class="c1"># labels (left shift of the target sequences)</span>
-          <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+          <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
           <span class="n">validation_data</span><span class="o">=</span><span class="p">[[</span><span class="n">valid_encoder_input_data</span><span class="p">,</span> <span class="n">valid_decoder_input_data</span><span class="p">],</span>
                            <span class="n">valid_decoder_target_data</span><span class="p">])</span>
-<span class="c1"># TODO change back to 50</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;seq2seq.h5&#39;</span><span class="p">)</span>
 </pre></div>
@@ -14539,27 +14362,107 @@ Use tf.cast instead.
 WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/ops/math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Deprecated in favor of operator or tf.math.divide.
-Train on 22335 samples, validate on 7465 samples
-Epoch 1/10
-22335/22335 [==============================] - 335s 15ms/step - loss: 0.5473 - val_loss: 0.3620
-Epoch 2/10
-22335/22335 [==============================] - 329s 15ms/step - loss: 0.3818 - val_loss: 0.3249
-Epoch 3/10
-22335/22335 [==============================] - 331s 15ms/step - loss: 0.3325 - val_loss: 0.2912
-Epoch 4/10
-22335/22335 [==============================] - 330s 15ms/step - loss: 0.3025 - val_loss: 0.2657
-Epoch 5/10
-22335/22335 [==============================] - 329s 15ms/step - loss: 0.2826 - val_loss: 0.2479
-Epoch 6/10
-22335/22335 [==============================] - 328s 15ms/step - loss: 0.2655 - val_loss: 0.2328
-Epoch 7/10
-22335/22335 [==============================] - 327s 15ms/step - loss: 0.2515 - val_loss: 0.2242
-Epoch 8/10
-22335/22335 [==============================] - 327s 15ms/step - loss: 0.2399 - val_loss: 0.2123
-Epoch 9/10
-22335/22335 [==============================] - 330s 15ms/step - loss: 0.2363 - val_loss: 0.2209
-Epoch 10/10
-22335/22335 [==============================] - 328s 15ms/step - loss: 0.2304 - val_loss: 0.2073
+Train on 22357 samples, validate on 7601 samples
+Epoch 1/50
+22357/22357 [==============================] - 342s 15ms/step - loss: 0.5454 - val_loss: 0.3710
+Epoch 2/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.3731 - val_loss: 0.3208
+Epoch 3/50
+22357/22357 [==============================] - 347s 16ms/step - loss: 0.3758 - val_loss: 0.3077
+Epoch 4/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.3088 - val_loss: 0.2793
+Epoch 5/50
+22357/22357 [==============================] - 336s 15ms/step - loss: 0.2884 - val_loss: 0.2573
+Epoch 6/50
+22357/22357 [==============================] - 336s 15ms/step - loss: 0.2706 - val_loss: 0.2425
+Epoch 7/50
+22357/22357 [==============================] - 336s 15ms/step - loss: 0.2556 - val_loss: 0.2295
+Epoch 8/50
+22357/22357 [==============================] - 339s 15ms/step - loss: 0.2444 - val_loss: 0.2193
+Epoch 9/50
+22357/22357 [==============================] - 339s 15ms/step - loss: 0.2341 - val_loss: 0.2099
+Epoch 10/50
+22357/22357 [==============================] - 337s 15ms/step - loss: 0.2252 - val_loss: 0.2018
+Epoch 11/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.2178 - val_loss: 0.1952
+Epoch 12/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.2115 - val_loss: 0.1920
+Epoch 13/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.2064 - val_loss: 0.1866
+Epoch 14/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.2011 - val_loss: 0.1814
+Epoch 15/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.1965 - val_loss: 0.1806
+Epoch 16/50
+22357/22357 [==============================] - 334s 15ms/step - loss: 0.1930 - val_loss: 0.1767
+Epoch 17/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.1887 - val_loss: 0.1719
+Epoch 18/50
+22357/22357 [==============================] - 340s 15ms/step - loss: 0.1852 - val_loss: 0.1710
+Epoch 19/50
+22357/22357 [==============================] - 339s 15ms/step - loss: 0.1815 - val_loss: 0.1680
+Epoch 20/50
+22357/22357 [==============================] - 334s 15ms/step - loss: 0.1791 - val_loss: 0.1658
+Epoch 21/50
+22357/22357 [==============================] - 332s 15ms/step - loss: 0.1762 - val_loss: 0.1650
+Epoch 22/50
+22357/22357 [==============================] - 334s 15ms/step - loss: 0.1735 - val_loss: 0.1645
+Epoch 23/50
+22357/22357 [==============================] - 334s 15ms/step - loss: 0.1715 - val_loss: 0.1605
+Epoch 24/50
+22357/22357 [==============================] - 335s 15ms/step - loss: 0.1695 - val_loss: 0.1588
+Epoch 25/50
+22357/22357 [==============================] - 335s 15ms/step - loss: 0.1673 - val_loss: 0.1583
+Epoch 26/50
+22357/22357 [==============================] - 335s 15ms/step - loss: 0.1655 - val_loss: 0.1567
+Epoch 27/50
+22357/22357 [==============================] - 332s 15ms/step - loss: 0.1636 - val_loss: 0.1575
+Epoch 28/50
+22357/22357 [==============================] - 337s 15ms/step - loss: 0.2084 - val_loss: 0.1748
+Epoch 29/50
+22357/22357 [==============================] - 334s 15ms/step - loss: 0.2208 - val_loss: 0.1541
+Epoch 30/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.2063 - val_loss: 0.1547
+Epoch 31/50
+22357/22357 [==============================] - 341s 15ms/step - loss: 0.1602 - val_loss: 0.1544
+Epoch 32/50
+22357/22357 [==============================] - 339s 15ms/step - loss: 0.1578 - val_loss: 0.1523
+Epoch 33/50
+22357/22357 [==============================] - 337s 15ms/step - loss: 0.1569 - val_loss: 0.1528
+Epoch 34/50
+22357/22357 [==============================] - 338s 15ms/step - loss: 0.1554 - val_loss: 0.1519
+Epoch 35/50
+22357/22357 [==============================] - 341s 15ms/step - loss: 0.1534 - val_loss: 0.1538
+Epoch 36/50
+22357/22357 [==============================] - 339s 15ms/step - loss: 0.1526 - val_loss: 0.1503
+Epoch 37/50
+22357/22357 [==============================] - 343s 15ms/step - loss: 0.1512 - val_loss: 0.1510
+Epoch 38/50
+22357/22357 [==============================] - 341s 15ms/step - loss: 0.1498 - val_loss: 0.1503
+Epoch 39/50
+22357/22357 [==============================] - 341s 15ms/step - loss: 0.1488 - val_loss: 0.1505
+Epoch 40/50
+22357/22357 [==============================] - 344s 15ms/step - loss: 0.1474 - val_loss: 0.1483
+Epoch 41/50
+22357/22357 [==============================] - 342s 15ms/step - loss: 0.6058 - val_loss: 0.2830
+Epoch 42/50
+22357/22357 [==============================] - 346s 15ms/step - loss: 0.3081 - val_loss: 0.1981
+Epoch 43/50
+22357/22357 [==============================] - 340s 15ms/step - loss: 0.1897 - val_loss: 0.1510
+Epoch 44/50
+22357/22357 [==============================] - 345s 15ms/step - loss: 0.1479 - val_loss: 0.1469
+Epoch 45/50
+22357/22357 [==============================] - 343s 15ms/step - loss: 0.1508 - val_loss: 0.1482
+Epoch 46/50
+22357/22357 [==============================] - 340s 15ms/step - loss: 0.1565 - val_loss: 0.1561
+Epoch 47/50
+22357/22357 [==============================] - 344s 15ms/step - loss: 0.1481 - val_loss: 0.1476
+Epoch 48/50
+22357/22357 [==============================] - 340s 15ms/step - loss: 0.1439 - val_loss: 0.1475
+Epoch 49/50
+22357/22357 [==============================] - 342s 15ms/step - loss: 0.1426 - val_loss: 0.1471
+Epoch 50/50
+22357/22357 [==============================] - 342s 15ms/step - loss: 0.1411 - val_loss: 0.1472
 </pre>
 </div>
 </div>
@@ -14651,7 +14554,7 @@ Epoch 10/10
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">seq_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2100</span><span class="p">,</span> <span class="mi">2120</span><span class="p">):</span>
@@ -14680,85 +14583,85 @@ Epoch 10/10
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-
-English:        he found me a nice tie
-Polish (true):  znalazł dla mnie przyjemny krawat
-Polish (pred):  powiedziałem że to jest ten zamierzy
+English:        what should i do next
+Polish (true):  co powinnam zrobić następnie
+Polish (pred):  co mogę powiedzieć
 -
-English:        he ignores my problems
-Polish (true):  on ignoruje moje problemy
-Polish (pred):  on jest za stary za stanie
+English:        what size do you wear
+Polish (true):  jaki rozmiar nosisz
+Polish (pred):  co jeszcze chcesz
 -
-English:        he is a very smart boy
-Polish (true):  on jest bardzo bystrym chłopcem
-Polish (pred):  jest ten za stary po francusku
+English:        what would cause this
+Polish (true):  co mogło to spowodować
+Polish (pred):  co to zabiło
 -
-English:        he is an office worker
-Polish (true):  on jest pracownikiem biurowym
-Polish (pred):  on jest za stary za stanie
+English:        whats happened to us
+Polish (true):  co się nam stało
+Polish (pred):  co się stało
 -
-English:        he is speaking english
-Polish (true):  on mówi po angielsku
-Polish (pred):  on jest za mnie za mnie za mnie
+English:        whats he doing there
+Polish (true):  co on tam robi
+Polish (pred):  co to zrobiła
 -
-English:        he isnt afraid to die
-Polish (true):  nie boi się śmierci
-Polish (pred):  on jest za stary za stanie
+English:        where are the glasses
+Polish (true):  gdzie są okulary
+Polish (pred):  gdzie są trochę zajęty
 -
-English:        he jumped on the train
-Polish (true):  wskoczył do pociągu
-Polish (pred):  powiedziałem że to jest ten zamierzy
+English:        where can i get a map
+Polish (true):  gdzie mogę dostać mapę
+Polish (pred):  gdzie mogę pomóc
 -
-English:        he learned how to swim
-Polish (true):  nauczył się jak pływać
-Polish (pred):  przyjdzie ma to zrobić
+English:        where do you all live
+Polish (true):  gdzie wy mieszkacie
+Polish (pred):  gdzie się czujesz
 -
-English:        he often appears on tv
-Polish (true):  często występuje w telewizji
-Polish (pred):  on jest za mnie za mnie za mnie
+English:        wheres everyone else
+Polish (true):  gdzie jest reszta ludzi
+Polish (pred):  gdzie są twoje dziecko
 -
-English:        he often falls in love
-Polish (true):  on często się zakochuje
-Polish (pred):  on jest za mnie za mnie za mnie
+English:        who called the police
+Polish (true):  kto wezwał policję
+Polish (pred):  kto zapomniał przez dziewczynę
 -
-English:        he often quotes milton
-Polish (true):  on często cytuje miltona
-Polish (pred):  powiedział mi że to jest ten samochód
+English:        who helps your mother
+Polish (true):  kto pomaga twej matce
+Polish (pred):  kto twój błąd
 -
-English:        he went to the dentist
-Polish (true):  poszedł do dentysty
-Polish (pred):  nie mam wiedzieć kiedy byłem zajęty
+English:        whose bicycle is this
+Polish (true):  czyj jest ten rower
+Polish (pred):  czyj to telefon
 -
-English:        he will come after all
-Polish (true):  a jednak przyjdzie
-Polish (pred):  powiedziałem że to jest ten samochód
+English:        why did they fire tom
+Polish (true):  czemu zwolnili toma
+Polish (pred):  dlaczego tom wie zabił toma
 -
-English:        he will soon come back
-Polish (true):  on zaraz wróci
-Polish (pred):  powiedziałem że to jest ten zamierzy
+English:        why werent you there
+Polish (true):  czemu cię tam nie było
+Polish (pred):  dlaczego tego nie ma
 -
-English:        hes likely to be late
-Polish (true):  prawdopodobnie się spóźni
-Polish (pred):  przyjdzie ma to zrobić
+English:        will you deal with it
+Polish (true):  poradzisz sobie z tym
+Polish (pred):  czy odejściesz to
 -
-English:        hes probably sleeping
-Polish (true):  najprawdopodobniej śpi
-Polish (pred):  jest ten za stary po francusku
+English:        winter is coming soon
+Polish (true):  zbliża się zima
+Polish (pred):  cotowi na stacji
 -
-English:        help us reach our goal
-Polish (true):  pomóż nam osiągnąć nasz cel
-Polish (pred):  przyjdzie ma to zrobić
+English:        you always exaggerate
+Polish (true):  zawsze przesadzasz
+Polish (pred):  zawsze się spotkaliśmy
 -
-English:        her hair is very short
-Polish (true):  jej włosy są bardzo krótkie
-Polish (pred):  jest ten za stary po francusku
+English:        you arrived too early
+Polish (true):  przyszedłeś za wcześnie
+Polish (pred):  prawdopodobnie potrzebujesz toma
 -
-English:        her room is very small
-Polish (true):  jej pokój jest bardzo mały
-Polish (pred):  jest ten za stary po francusku
+English:        you deserve the prize
+Polish (true):  zasługujesz na nagrodę
+Polish (pred):  nie potrzebujesz podróżowania
 -
-English:        how are you holding up
-Polish (true):  jak się trzymasz
-Polish (pred):  jesteś za stary za stanie
+English:        you dont sound happy
+Polish (true):  nie brzmisz wesoło
+Polish (pred):  nie widzisz tego
 </pre>
 </div>
 </div>
@@ -14781,7 +14684,7 @@ Polish (pred):  jesteś za stary za stanie
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_sentence</span> <span class="o">=</span> <span class="s1">&#39;why is that&#39;</span>
@@ -14813,7 +14716,7 @@ Polish (pred):  jesteś za stary za stanie
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>source sentence is: why is that
-translated sentence is: nie mam wiele
+translated sentence is: spałem to
 
 </pre>
 </div>
@@ -14838,7 +14741,7 @@ translated sentence is: nie mam wiele
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.translate</span> <span class="k">import</span> <span class="n">bleu_score</span> 
@@ -14861,7 +14764,7 @@ translated sentence is: nie mam wiele
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Sentence Bleu: 0.6803749333171202
+<pre>Sentence Bleu: 0.7400828044922853
 </pre>
 </div>
 </div>
@@ -14906,7 +14809,7 @@ BLEU scores might be undesirable; use SmoothingFunction().
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">seq_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">105</span><span class="p">):</span>
@@ -14933,29 +14836,29 @@ BLEU scores might be undesirable; use SmoothingFunction().
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-
-English:        tom cheats
-Polish (true):  tom oszukuje
-Polish (pred):  tom powiedział mary że jestem zajęty
+English:        he is here
+Polish (true):  on tu jest
+Polish (pred):  on jest teraz w bostonie
 
 -
-English:        tom is shy
-Polish (true):  tom jest nieśmiały
-Polish (pred):  tom jest mary przyjacielem
+English:        hes smart
+Polish (true):  on jest mądry
+Polish (pred):  on jest zabawny
 
 -
-English:        tom jumped
-Polish (true):  tom skoczył
-Polish (pred):  tom powiedział mary że to jest toma
+English:        hurry home
+Polish (true):  spiesz się do domu
+Polish (pred):  pomóż mi tom
 
 -
-English:        tom sighed
-Polish (true):  tom westchnął
-Polish (pred):  tom jest mary przyjacielem
+English:        i am a boy
+Polish (true):  jestem chłopakiem
+Polish (pred):  jestem w bostonie
 
 -
-English:        were safe
-Polish (true):  jesteśmy bezpieczni
-Polish (pred):  jesteśmy przyjacielem
+English:        i am a man
+Polish (true):  jestem człowiekiem
+Polish (pred):  jestem moim bratem
 
 </pre>
 </div>
@@ -14974,7 +14877,7 @@ Polish (pred):  jesteśmy przyjacielem
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">corpus_score</span> <span class="o">=</span> <span class="n">bleu_score</span><span class="o">.</span><span class="n">corpus_bleu</span><span class="p">(</span><span class="n">test_target_texts</span><span class="p">,</span> <span class="n">test_translated</span><span class="p">)</span>
@@ -14995,7 +14898,7 @@ Polish (pred):  jesteśmy przyjacielem
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Corpus Bleu: 0.7629149920793389
+<pre>Corpus Bleu: 0.8068455170461171
 </pre>
 </div>
 </div>
@@ -15014,19 +14917,6 @@ BLEU scores might be undesirable; use SmoothingFunction().
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
